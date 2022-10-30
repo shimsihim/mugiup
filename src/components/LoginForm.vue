@@ -31,7 +31,7 @@ export default {
         password: this.password,
       };
 
-      this.$store.dispatch("setLoginUser", user);
+      this.$store.___________("setLoginUser", user);
     },
   },
 };

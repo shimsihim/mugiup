@@ -18,12 +18,12 @@
       <label for="age">나이</label>
       <input type="number" id="age" v-model="age" class="view" /><br />
       <button class="btn" @click="regist">등록</button>
-      <button class="btn" @click="random">랜덤</button>
+      <button class="btn" @click="getInfoFromAPI">랜덤</button>
     </fieldset>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { ___________ } from "vuex";
 export default {
   name: "UserList",
   data() {
@@ -37,14 +37,13 @@ export default {
     };
   },
   methods: {
-    // 비동기 통신으로 값이 준비될때까지 대기
-    _____ random() {
-      _____ this.$store.________("__________");
-      this.id = this.________.id;
-      this.password = this.________.password;
-      this.name = this.________.name;
-      this.email = this.________.email;
-      this.age = this.________.age;
+    async getInfoFromAPI() {
+      await this.$store.___________("setRandomUser");
+      this.id = this.randomUser.id;
+      this.password = this.randomUser.password;
+      this.name = this.randomUser.name;
+      this.email = this.randomUser.email;
+      this.age = this.randomUser.age;
     },
     regist() {
       if (
@@ -66,11 +65,11 @@ export default {
         img: "#",
       };
 
-      this.$store.dispatch("createUser", user);
+      this.$store.___________("createUser", user);
     },
   },
   computed: {
-    ...mapState(["randomUser"]),
+    ...___________(["randomUser"]),
   },
 };
 </script>

@@ -29,25 +29,27 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { ___________ } from "vuex";
 export default {
   name: "UserDetail",
   methods: {
     updateUser() {
-      this.$store.dispatch("updateUser", this.user);
+      this.$store.___________("updateUser", this.user);
     },
     deleteUser() {
-      this.$store.dispatch("deleteUser", this.user.id);
+      this.$store.___________("deleteUser", this.user.id);
+    },
+    async setUser(id) {
+      await this.$store.___________("setUser", id);
     },
   },
   computed: {
-    ...mapState(["user"]),
+    ...___________(["user"]),
   },
   created() {
     const pathName = new URL(document.location).pathname.split("/");
     const id = pathName[pathName.length - 1];
-
-    this.$store.dispatch("setUser", id);
+    this.setUser(id);
   },
 };
 </script>
