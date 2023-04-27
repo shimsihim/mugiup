@@ -52,7 +52,7 @@
   </div>
 </template>
 <script>
-import { ___________, ___________ } from "vuex";
+// import { ___________, ___________ } from "vuex";
 export default {
   name: "UserSearch",
   data() {
@@ -66,8 +66,8 @@ export default {
     },
   },
   computed: {
-    ...___________(["searchUsers"]),
-    ...___________(["searchUserCnt"]),
+    // ...___________(["searchUsers"]),
+    // ...___________(["searchUserCnt"]),
   },
 };
 </script>
