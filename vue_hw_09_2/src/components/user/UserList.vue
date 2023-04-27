@@ -44,11 +44,11 @@ export default {
   name: "UserList",
   methods: {},
   computed: {
-    ...___________(["users"]),
-    ...___________(["userCnt"]),
+    //...___________(["users"]),
+    //...___________(["userCnt"]),
   },
   created() {
-    this.$store.___________("setUsers");
+   // this.$store.___________("setUsers");
   },
 };
 </script>

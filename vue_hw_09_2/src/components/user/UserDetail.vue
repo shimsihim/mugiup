@@ -29,22 +29,22 @@
   </div>
 </template>
 <script>
-import { ___________ } from "vuex";
+// import { ___________ } from "vuex";
 export default {
   name: "UserDetail",
   methods: {
     updateUser() {
-      this.$store.___________("updateUser", this.user);
+      //this.$store.___________("updateUser", this.user);
     },
     deleteUser() {
-      this.$store.___________("deleteUser", this.user.id);
+      //this.$store.___________("deleteUser", this.user.id);
     },
     async setUser(id) {
-      await this.$store.___________("setUser", id);
+      //await this.$store.___________("setUser", id);
     },
   },
   computed: {
-    ...___________(["user"]),
+    //...___________(["user"]),
   },
   created() {
     const pathName = new URL(document.location).pathname.split("/");

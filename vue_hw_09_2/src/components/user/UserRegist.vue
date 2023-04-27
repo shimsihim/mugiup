@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { ___________ } from "vuex";
+//import { ___________ } from "vuex";
 export default {
   name: "UserList",
   data() {
@@ -56,20 +56,20 @@ export default {
         return;
       }
 
-      let user = {
-        id: this.id,
-        password: this.password,
-        name: this.name,
-        email: this.email,
-        age: this.age,
-        img: "#",
-      };
+      // let user = {
+      //   id: this.id,
+      //   password: this.password,
+      //   name: this.name,
+      //   email: this.email,
+      //   age: this.age,
+      //   img: "#",
+      // };
 
-      this.$store.___________("createUser", user);
+      //this.$store.___________("createUser", user);
     },
   },
   computed: {
-    ...___________(["randomUser"]),
+    //...___________(["randomUser"]),
   },
 };
 </script>

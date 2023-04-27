@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     searchUser() {
-      this.$store.___________("searchName", this.search);
+      //this.$store.___________("searchName", this.search);
     },
   },
   computed: {
