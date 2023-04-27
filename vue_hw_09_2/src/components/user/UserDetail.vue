@@ -39,9 +39,9 @@ export default {
     deleteUser() {
       //this.$store.___________("deleteUser", this.user.id);
     },
-    async setUser(id) {
-      //await this.$store.___________("setUser", id);
-    },
+    //async setUser(id) {
+    //  await this.$store.___________("setUser", id);
+    //},
   },
   computed: {
     //...___________(["user"]),
