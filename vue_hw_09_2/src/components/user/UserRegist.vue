@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-//import { ___________ } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "UserList",
   data() {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     async getInfoFromAPI() {
-      await this.$store.___________("setRandomUser");
+      await this.$store.dispatch("setRandomUser");
       this.id = this.randomUser.id;
       this.password = this.randomUser.password;
       this.name = this.randomUser.name;
@@ -56,20 +56,20 @@ export default {
         return;
       }
 
-      // let user = {
-      //   id: this.id,
-      //   password: this.password,
-      //   name: this.name,
-      //   email: this.email,
-      //   age: this.age,
-      //   img: "#",
-      // };
+      let user = {
+        id: this.id,
+        password: this.password,
+        name: this.name,
+        email: this.email,
+        age: this.age,
+        img: "#",
+      };
 
-      //this.$store.___________("createUser", user);
+      this.$store.dispatch("createUser", user);
     },
   },
   computed: {
-    //...___________(["randomUser"]),
+    ...mapState(["randomUser"]),
   },
 };
 </script>

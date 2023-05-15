@@ -14,16 +14,16 @@
   </header>
 </template>
 <script>
-import { ___________ } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "HeaderNav",
   methods: {
     logout() {
-      this.$store.___________("LOGOUT");
+      this.$store.commit("LOGOUT");
     },
   },
   computed: {
-    ...___________(["loginUser"]),
+    ...mapState(["loginUser"]),
     getUser() {
       if (this.loginUser) {
         return true;

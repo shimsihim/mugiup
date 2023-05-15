@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-export default {
+export default{
   name: "LoginForm",
   data() {
     return {
@@ -31,7 +31,7 @@ export default {
         password: this.password,
       };
 
-      //this.$store.___________("setLoginUser", user);
+      this.$store.dispatch("setLoginUser", user);
     },
   },
 };
