@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssafit.model.dao.UserDao">
+	
+	<!--  User 전체 조회. -->
+	<select id="selectAll" resultType="User">
+			SELECT *
+			FROM `user`
+	</select>
+	
+	<!-- 아이디로 User 정보를 조회. -->
+	<select id="selectByUserId" parameterType="String" resultType="User">
+			SELECT *
+			FROM `user`
+			WHERE user_id=#{user_id}
+	</select>
+	
+	
+	<!--  User DB추가 --> 
+	<insert id="insertUser" parameterType="User">
+			INSERT INTO user (user_id, user_pw, user_name, user_email, user_phone, user_nickname, user_height, user_weight)
+			VALUES (#{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_nickname}, #{user_height}, #{user_weight})		
+	</insert> 
+	
+	<!-- User DB수정 -->
+	<update id="updateUser" parameterType="User">
+			UPDATE user
+			SET user_pw = #{user_pw}, user_email = #{user_email}, user_phone=#{user_phone}, user_imgFolder=#{user_imgFolder}, user_imgFile=#{user_imgFile}, user_nickname=#{user_nickname}, user_height=#{user_height}, user_weight=#{user_weight}
+			WHERE user_id = #{user_id}
+	</update>
+	
+	<!-- User DB삭제 -->
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM `user`
+		WHERE user_id = #{user_id}
+	</delete>
+	
+	
+	
+</mapper>

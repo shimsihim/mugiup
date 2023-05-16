@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssafit.model.dao.PostDao">
+
+	<!-- board_id로  게시판별 글 목록 조회. -->
+	<select id="selectAll" parameterType="int" resultType="Post">
+			SELECT post.*, user.user_nickname
+			FROM post LEFT JOIN user ON post.post_writer_id=user.user_id
+			WHERE post.post_board_id = #{board_id};
+	</select>
+
+	<!-- 상세글 조회 -->
+	<select id="selectOne" parameterType="int"  resultType="Post">
+		SELECT *
+		FROM post
+		WHERE post_num = #{post_num}
+	</select>
+	
+	<!-- 게시글 등록 -->
+	<insert id="insertPost" parameterType="Post">
+		INSERT INTO post (post_board_id, post_writer_id, post_title, post_content, post_created_at)
+		VALUES (#{post_board_id}, #{post_writer_id}, #{post_title}, #{post_content}, now())
+	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deletePost" parameterType="int">
+		DELETE FROM post
+		WHERE post_num = #{post_num}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="updatePost" parameterType="Post">
+		UPDATE post
+		SET post_title = #{post_title}, post_content=#{post_content}, post_modified_at = now()
+		WHERE post_num=#{post_num}
+	</update>	
+	
+	<!-- 조회수 증가 -->
+	<update id="updateViewCnt" parameterType="int">
+		UPDATE post
+		SET post_view_cnt = post_view_cnt+1
+		WHERE post_num = #{post_num}
+	</update>
+	
+	
+	
+	
+</mapper>
