@@ -17,20 +17,22 @@
             <th>아이디</th>
             <th>이름</th>
             <th>이메일</th>
-            <th>나이</th>
+            <th>휴대폰번호</th>
+            <th>닉네임</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(user, index) in users" :key="index">
             <td>{{ index + 1 }}</td>
             <td>
-              <router-link class="user-link" :to="`/${user.id}`">{{
-                user.id
+              <router-link class="user-link" :to="`/${user.user_id}`">{{
+                user.user_id
               }}</router-link>
             </td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.age }} 세</td>
+            <td>{{ user.user_name }}</td>
+            <td>{{ user.user_email }}</td>
+            <td>{{ user.user_phone }} </td>
+            <td>{{ user.user_nickname }} </td>
           </tr>
         </tbody>
       </table>
@@ -39,16 +41,16 @@
   </div>
 </template>
 <script>
-// import { ___________, ___________ } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "UserList",
   methods: {},
   computed: {
-    //...___________(["users"]),
-    //...___________(["userCnt"]),
+    ...mapState(["users"]),
+    ...mapGetters(["userCnt"]),
   },
   created() {
-   // this.$store.___________("setUsers");
+   this.$store.dispatch("setUsers");
   },
 };
 </script>

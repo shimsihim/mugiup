@@ -5,10 +5,19 @@
         <router-link to="/" class="logo">SSAFY USERS</router-link>
       </div>
       <div>
-        <a href="#" v-if="getUser" @click="logout">로그아웃</a>
-        <router-link to="/login" v-else>로그인</router-link>
-        <router-link :to="{ name: 'Regist' }">회원가입</router-link>
-        <router-link to="/user">사용자목록</router-link>
+        <router-link to="/board/list/1">게시판</router-link>
+      </div>
+      <div>
+        <div v-if="getUser">
+          <a href="#" @click="logout">로그아웃</a>
+          <router-link to="/mypage">마이페이지</router-link>
+        </div>
+        <div v-else>
+          <router-link to="/login">로그인</router-link>
+          <router-link :to="{ name: 'Regist' }" >회원가입</router-link>
+          <!-- 관리자용 사용자목록 -->
+          <!-- <router-link to="/user">사용자목록</router-link> -->
+        </div>
       </div>
     </nav>
   </header>
@@ -20,6 +29,7 @@ export default {
   methods: {
     logout() {
       this.$store.commit("LOGOUT");
+      alert("로그아웃 되었습니다.");
     },
   },
   computed: {

@@ -52,7 +52,7 @@
   </div>
 </template>
 <script>
-// import { ___________, ___________ } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "UserSearch",
   data() {
@@ -62,12 +62,12 @@ export default {
   },
   methods: {
     searchUser() {
-      //this.$store.___________("searchName", this.search);
+      this.$store.dispatch("searchName", this.search);
     },
   },
   computed: {
-    // ...___________(["searchUsers"]),
-    // ...___________(["searchUserCnt"]),
+    ...mapState(["searchUsers"]),
+    ...mapGetters(["searchUserCnt"]),
   },
 };
 </script>
